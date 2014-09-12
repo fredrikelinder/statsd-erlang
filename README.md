@@ -7,19 +7,21 @@ an Erlang client for [statsd](https://github.com/etsy/statsd) that is based on O
 Add statsd-erlang to your application file like this:
 
 ```erlang
-{mod, {statsd_app, []}}
+{mod, {statsd, []}}
 ```
 
-You can specify the host and/or port in the configuration, too:
+You can specify the host, port and pool size in the configuration, too:
 
 ```erlang
-{mod, {statsd_app, ["localhost", 8125]}}
+{env, [{pool_size, 5},
+       {host, {"localhost", 8125}}
+      ]}
 ```
 
-The values "localhost" and 8125 are set by default, so you only have to specify them if you want to use others.
+The above values are set by default, so you only have to specify them if you want to use others.
 
 ```erlang
-statsd:start("localhost", 8125).
+statsd:start().
 
 statsd:increment("foo.bar").
 statsd:count("foo.bar", 5).
@@ -33,6 +35,7 @@ To compile the source, use [rebar](https://github.com/basho/rebar/).
 ## Author
 
 Original author: Dominik Liebler <liebler.dominik@gmail.com>
+Worker pool rework: Martin Rehfeld <martin.rehfeld@wooga.com>
 
 ## License
 

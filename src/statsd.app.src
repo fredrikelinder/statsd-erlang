@@ -1,8 +1,10 @@
 {application, statsd, [
   {description, "An Erlang client for statsd"},
-  {vsn, "0.0.1"},
-  {registered, [statsd]},
+  {vsn, "1.0.0"},
+  {registered, [statsd_sup]},
   {applications, [kernel, stdlib]},
-  {mod, {statsd_app, []}},
-  {env, []}
+  {mod, {statsd, []}},
+  {env, [{pool_size, 5},
+         {host, {"localhost", 8125}}
+        ]}
 ]}.
