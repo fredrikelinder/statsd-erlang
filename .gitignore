@@ -1,5 +1,7 @@
-*.beam
 doc
 .eunit
 .idea
-deps/*
+deps/**
+*.beam
+ebin
+erl_crash.dump
