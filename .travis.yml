@@ -5,9 +5,6 @@ otp_release:
    - R15B03
    - R15B02
    - R15B01
-   - R14B04
-   - R14B03
-   - R14B02
 notifications:
   webhooks:
     - https://wooga.slack.com/services/hooks/travis?token=mZNldRc90aXkhWxx71FKPuPN
